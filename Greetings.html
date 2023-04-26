@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<h3>Time based greetings</h3>
+<img src="greetings.jpg">
+<body>
+    <form>
+      
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name"><br><br>
+
+          <label for="time">Enter the time:</label>
+          <input type="datetime-local" id="time" name="name"><br><br>
+         
+
+          <button type="submit">The greetings</button>
+        </form>
+    
+        <p id="greeting"></p>
+    
+        <script>
+
+    function displayGreeting()
+          const form = document.querySelector('form');
+          form.addEventListener('submit', (event) => {
+            event.preventDefault(); 
+
+          
+    
+            const name = document.querySelector('#name').value;
+    
+            const now = new Date();
+            const time = now.getHours();
+    
+            let greeting;
+            if (time >= 0 && time < 12) {
+              greeting = 'Good morning';
+            } else if (time >= 12 && time < 18) {
+              greeting = 'Good afternoon';
+            } else {
+              greeting = 'Good evening';
+            }
+          alert(greeting);
+
+            const greetingElement = document.querySelector('#greeting');
+            greetingElement.textContent = `${greeting}, ${name}!`;
+          });
+        </script>   
+</body>
+</html>
